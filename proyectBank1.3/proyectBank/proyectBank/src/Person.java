@@ -3,13 +3,14 @@ import java.util.List;
 
 public class Person {
     private int codPerson;
-    private int document;
     private String namePerson;
     private String lastnamePerson;
     private String passwordPerson;
     private int rolPerson;
 
     static List<Person> people = new ArrayList<>();
+
+
 
     public Person() {}
 
@@ -19,14 +20,6 @@ public class Person {
 
     public void setCodPerson(int codPerson) {
         this.codPerson = codPerson;
-    }
-
-    public int getDocument() {
-        return document;
-    }
-
-    public void setDocument(int document) {
-        this.document = document;
     }
 
     public String getNamePerson() {

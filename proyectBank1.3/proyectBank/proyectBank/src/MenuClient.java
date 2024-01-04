@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class MenuClient {
     static Scanner sc = new Scanner(System.in);
     static Cliente cliente = new Cliente();
+
     public static void MenuHambur(int codPerson) {
-        
         int cod_Person = codPerson;
-        
+
         System.out.println("--------- Menú Personas -------");
         System.out.println("1. Cuenta de Ahorros");
         System.out.println("2. Tarjeta Debito");
@@ -19,10 +19,9 @@ public class MenuClient {
             switch (op) {
                 case 1:
                     accountSaving(cod_Person);
-
                     break;
                 case 2:
-                    System.out.println("Tarjeta Debito"); 
+                    System.out.println("Tarjeta Debito");
                     break;
                 case 3:
                     System.out.println("Tarjeta credito");
@@ -51,20 +50,18 @@ public class MenuClient {
             op = sc.nextInt();
             switch (op) {
                 case 1:
-                cliente.verSaldo();
-
+                    double saldo = Cliente.obtenerSaldoPorId(cod_Person);
+                    System.out.println("Su saldo actual es: $" + saldo);
                     break;
                 case 2:
-                System.out.print("Ingrese la cantidad a retirar: ");
-                double cantidadRetiro = sc.nextDouble();
-                cliente.retirar(cantidadRetiro);
-
+                    System.out.print("Ingrese la cantidad a retirar: ");
+                    double cantidadRetiro = sc.nextDouble();
+                    Cliente.retirar(cod_Person, cantidadRetiro);
                     break;
                 case 3:
-                System.out.print("Ingrese la cantidad a consignar: ");
-                double cantidadConsignar = sc.nextDouble();
-                cliente.consignar(cantidadConsignar);
-
+                    System.out.print("Ingrese la cantidad a consignar: ");
+                    double cantidadConsignar = sc.nextDouble();
+                    Cliente.consignar(cod_Person, cantidadConsignar);
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal");
@@ -74,7 +71,6 @@ public class MenuClient {
                     System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
                     break;
             }
-        } while ( op != 0 );
-
+        } while (op != 0);
     }
 }

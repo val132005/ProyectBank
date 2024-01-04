@@ -10,8 +10,6 @@ public class Atm {
     // static List<Person> people = new ArrayList<>();
     static Cliente client = new Cliente();
     public static void welcome() {
-        Administrador.crearAdminPredefinido();
-
         int op;
         do {
             System.out.println("Bienvenido a patito!");
@@ -83,35 +81,6 @@ public class Atm {
             if (person.getCodPerson() == codPerson) {
                 System.out.println("Bienvenido " + person.getNamePerson());
                 System.out.println("-------- Menú administrador ------------");
-                System.out.println("1. Consultar Cliente");
-                System.out.println("2. Registrar Cliente");
-                System.out.println("3. Modificar Cliente");
-                System.out.println("4. Eliminar Cliente");
-                System.out.println("5. Cerrar Sesión");
-                System.out.print("Seleccione una opción: ");
-                int adminOp = sc.nextInt();
-    
-                switch (adminOp) {
-                    case 1:
-                        Administrador.consultClient();
-                        break;
-                    case 2:
-                        Administrador.registerClient();
-                        break;
-                    case 3:
-                        Administrador.modifyClient();
-                        break;
-                    case 4:
-                        Administrador.deleteClient();
-                        break;
-                    case 5:
-                        System.out.println("Sesión cerrada. ¡Hasta luego!");
-                        Atm.welcome();
-                        break;
-                    default:
-                        System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-                        break;
-                }
             }
         }
     }
